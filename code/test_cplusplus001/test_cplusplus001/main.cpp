@@ -381,6 +381,45 @@ void learning_logic_operation()
 
 }
 
+//2019.12.24 重点理解指针和引用（这是C++的一个小难点）
+void learing_pointer_and_reference()
+{
+	//指针
+	{
+		int  i = 20;   // 实际变量的声明
+		int* pi;        // 指针变量的声明
+
+		pi = &i;       // 在指针变量中存储 var 的地址
+
+		std::cout << "i的值是: " << i << std::endl;
+
+		// 输出在指针变量中存储的地址
+		std::cout << "pi中存储的地址是: " << pi << std::endl;
+
+		// 访问指针中地址的值
+		std::cout << "*pi 地址所指向的数值是: " << *pi << std::endl;
+	}
+
+	//引用
+	{
+		// 声明简单的变量
+		int    i;
+		double d;
+
+		// 声明引用变量
+		int&    r = i; //引用必须初始化（试了解初始化和赋值操作的区别）
+		double& s = d;
+
+		i = 5;
+		std::cout << "Value of i : " << i << std::endl;
+		std::cout << "Value of i reference : " << r << std::endl;
+
+		d = 11.7;
+		std::cout << "Value of d : " << d << std::endl;
+		std::cout << "Value of d reference : " << s << std::endl;
+	}
+}
+
 int main()
 {
 	learning_inner_data_type();
@@ -396,6 +435,8 @@ int main()
 	learing_basic_operation();
 
 	learning_logic_operation();
+
+	learing_pointer_and_reference();
 
 	std::cin.get();//等待键盘输入,目的是可以暂停看到控制台的输出字符
 
