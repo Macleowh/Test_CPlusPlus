@@ -1,5 +1,7 @@
 #include <iostream> //#include 是包含文件的意思  <iostream> 输入输出流（接受键盘的输入和控制台的输出功能）
 #include <string> // <string> 字符串相关文件
+#include <array> //std::array 标准库 array头文件
+
 
 //int main(){ return 0}; 
 //main函数是程序执行的入口，整个项目只有这一个执行入口
@@ -318,7 +320,7 @@ int test_increase_and_decrease()
 }
 
 //2019.12.23
-void learing_basic_operation()
+void learning_basic_operation()
 {
 	//双目基本运算符
 	{
@@ -382,7 +384,7 @@ void learning_logic_operation()
 }
 
 //2019.12.24 重点理解指针和引用（这是C++的一个小难点）
-void learing_pointer_and_reference()
+void learning_pointer_and_reference()
 {
 	//指针
 	{
@@ -420,6 +422,91 @@ void learing_pointer_and_reference()
 	}
 }
 
+// 2019.12.25
+//基本的数据结构
+void learning_basic_data_struct()
+{
+	//数组
+	char   ctable[5] = { 'a','b','c','d','e' }; //字符型数组
+	int    itable[5] = { 0, 1, 2, 3, 4 }; //整型数组
+	float  ftable[5] = { 0.1f, 1.1f, 2.2f, 3.3f, 4.4f }; //单精度数组
+	double dtable[5] = { 0.1, 1.1, 2.2, 3.3, 4.4 }; //双精度数组，试体会ftable 和 dtable有何不同
+
+	for (int i = 0; i < 5; ++i)
+	{
+		std::cout << "ctable[" << i << "] = " << ctable[i]
+			<< " itable[" << i << "] = " << itable[i]
+			<< " ftable[" << i << "] = " << ftable[i]
+			<< " dtable[" << i << "] = " << dtable[i] << std::endl;
+	}
+
+	const int data_size = 5;
+	std::array<char, data_size> arrayChar{ 'a','b','c','d','e' };
+	std::array<int, data_size> arrayInt{ 0, 1, 2, 3, 4 };
+	std::array<float, data_size> arrayFloat{ 0.1f, 1.1f, 2.2f, 3.3f, 4.4f };
+	std::array<double, data_size> arrayDouble{ 0.1, 1.1, 2.2, 3.3, 4.4 };
+
+	//利用at()方法下标访问
+	for (size_t i = 0; i < arrayChar.size(); ++i)
+	{
+		std::cout << "arrayChar[" << i << "] = " << arrayChar.at(i) << std::endl;
+	}
+
+	//利用迭代器访问
+	for (std::array<int, data_size>::iterator it = arrayInt.begin(); it != arrayInt.end(); ++it)
+	{
+		std::cout << "arrayInt[" << (it - arrayInt.begin()) << "] = " << (*it) << std::endl;
+	}
+
+	//利用[]方法下标访问
+	for (size_t i = 0; i < arrayFloat.size(); ++i)
+	{
+		std::cout << "arrayFloat[" << i << "] = " << arrayFloat[i] << std::endl;
+	}
+
+	//利用auto方法访问 C++ 11
+	int idx = 0;
+	for (auto &it : arrayDouble)
+	{
+	
+		std::cout << "arrayDouble[" << idx << "] = " << it << std::endl;
+		idx++;
+	}
+
+	//试增加用指针方式访问数组
+}
+
+//自定义数据结构
+struct MyStruct
+{
+	std::string  name;//姓名
+	unsigned int age; //年龄
+	bool         bIsmale;//性别
+	unsigned int height; //身高
+	float        weight; //体重
+};
+
+void learning_use_define_struct()
+{
+	MyStruct mystruct;
+	mystruct.name = "Zhang San";
+	mystruct.age = 18;
+	mystruct.bIsmale = true; 
+	mystruct.height = 170;
+	mystruct.weight = 56;
+	//一个叫 Zhang San 18岁，男性，身高170 体重 56Kg的人定义好了。
+
+	std::cout << "mystruct.name = " << mystruct.name << std::endl;
+	std::cout << "mystruct.age = " << mystruct.age << std::endl;
+	std::cout << "mystruct.bIsmale = " << mystruct.bIsmale << std::endl;
+	std::cout << "mystruct.height = " << mystruct.height << std::endl;
+	std::cout << "mystruct.weight = " << mystruct.weight << std::endl;
+
+
+	//试尝试定义另外一个李四的人
+	//试尝试定义其他的数据结构，实现自己的定义
+}
+
 int main()
 {
 	learning_inner_data_type();
@@ -432,11 +519,16 @@ int main()
 	
 	int ret = test_increase_and_decrease();
 
-	learing_basic_operation();
+	learning_basic_operation();
 
 	learning_logic_operation();
 
-	learing_pointer_and_reference();
+	learning_pointer_and_reference();
+
+	learning_basic_data_struct();
+
+	learning_use_define_struct();
+
 
 	std::cin.get();//等待键盘输入,目的是可以暂停看到控制台的输出字符
 
