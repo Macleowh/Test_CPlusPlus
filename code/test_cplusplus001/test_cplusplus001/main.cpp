@@ -1,7 +1,7 @@
 #include <iostream> //#include 是包含文件的意思  <iostream> 输入输出流（接受键盘的输入和控制台的输出功能）
 #include <string> // <string> 字符串相关文件
 #include <array> //std::array 标准库 array头文件
-
+#include <fstream> //std::ofstream std::ifstream 文件流操作
 
 //int main(){ return 0}; 
 //main函数是程序执行的入口，整个项目只有这一个执行入口
@@ -507,6 +507,33 @@ void learning_use_define_struct()
 	//试尝试定义其他的数据结构，实现自己的定义
 }
 
+
+//2019.12.26
+int learning_basic_file_operation(const std::string & save_filename)
+{
+	//保存日志和读取文件
+	//本例子实现写文件的功能 
+	std::ofstream outFile;
+	outFile.open(save_filename, std::ios::out);//已写模式打开文件
+	
+	if (!outFile.eof())//如果文件不为空
+	{
+		outFile << "This is a coding world." << std::endl; //写入文件内容
+		outFile << "My study step may be slow, but i will never give up!" << std::endl;//写入文件内容
+		outFile.close();//关闭文件
+	}
+	else //文件为空
+	{
+		outFile.close();//关闭文件
+		return 1;//返回异常值
+	}
+	return 0;//返回正常值
+
+	//试尝试实现读取文件的功能
+
+}
+
+
 int main()
 {
 	learning_inner_data_type();
@@ -529,6 +556,15 @@ int main()
 
 	learning_use_define_struct();
 
+	std::string filename{ "test_write_file.txt" };
+	if (!learning_basic_file_operation(filename))//函数调用，将返回值作为判断条件
+	{
+		std::cout << "文件写入成功！" << std::endl;
+	}
+	else
+	{
+		std::cout << "文件写入失败！" << std::endl;
+	}
 
 	std::cin.get();//等待键盘输入,目的是可以暂停看到控制台的输出字符
 
