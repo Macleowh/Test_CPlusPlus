@@ -533,6 +533,20 @@ int learning_basic_file_operation(const std::string & save_filename)
 
 }
 
+//2019.12.27
+void learning_basic_io_stream()
+{
+	int read_num;
+	std::cin >> read_num;//接受键盘输入(整数)
+	std::cout << "get input number = " << read_num << std::endl;
+	std::string read_str;
+	std::cin >> read_str;//接受键盘输入(字符)
+	std::cout << "get input string = " << read_str << std::endl; // string 只能接受从开始到第一个不含空格的内容
+	float read_float_num;
+	std::cin >> read_float_num;//接受键盘输入(小数)
+	std::cout << "get input float number = " << read_float_num << std::endl;
+}
+
 
 int main()
 {
@@ -566,7 +580,10 @@ int main()
 		std::cout << "文件写入失败！" << std::endl;
 	}
 
+	learning_basic_io_stream();
+
 	std::cin.get();//等待键盘输入,目的是可以暂停看到控制台的输出字符
+
 
 	return 0;
 }
