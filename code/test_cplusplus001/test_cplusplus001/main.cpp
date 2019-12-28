@@ -7,6 +7,8 @@
 //main函数是程序执行的入口，整个项目只有这一个执行入口
 
 
+#include "calculate.h" //添加自定义的计算类（这里采用的是分离式编译）
+
 //2019.12.18
 void learning_inner_data_type()
 {
@@ -547,6 +549,23 @@ void learning_basic_io_stream()
 	std::cout << "get input float number = " << read_float_num << std::endl;
 }
 
+//2019.12.28 测试calculate类的简单代码
+void learing_test_class()
+{
+	Calculate calc;//申请一个类对象
+	double op1 = 4.0;
+	double op2 = 5.0;
+	
+	//测试加法
+	double add_result = calc.add(op1, op2);
+	std::cout << "op1 + op2 = " << add_result << std::endl;
+
+	//测试除法
+	double div_result = calc.div(op1, op2);
+	std::cout << "op1 / op2 = " << div_result << std::endl;
+
+}
+
 
 int main()
 {
@@ -580,7 +599,9 @@ int main()
 		std::cout << "文件写入失败！" << std::endl;
 	}
 
-	learning_basic_io_stream();
+	//learning_basic_io_stream();
+
+	learing_test_class();
 
 	std::cin.get();//等待键盘输入,目的是可以暂停看到控制台的输出字符
 
