@@ -566,6 +566,38 @@ void learing_test_class()
 
 }
 
+//2019.12.29
+void learing_test_class2()
+{
+	Calculate_T<double> cal_t;
+
+	//浮点型的加法和除法
+	{
+		double op1 = 4.0;
+		double op2 = 5.0;
+		//测试加法
+		double add_result = cal_t.add(op1, op2);
+		std::cout << "op1 + op2 = " << add_result << std::endl;
+
+		//测试除法
+		double div_result = cal_t.div(op1, op2);
+		std::cout << "op1 / op2 = " << div_result << std::endl;
+	}
+
+	//整型的加法和除法
+	{
+		int op1 = 4;
+		int op2 = 5;
+		//测试加法
+		int add_result = cal_t.add(op1, op2);
+		std::cout << "op1 + op2 = " << add_result << std::endl;
+
+		//测试除法
+		int div_result = cal_t.div(op1, op2);
+		std::cout << "op1 / op2 = " << div_result << std::endl;
+	}
+}
+
 
 int main()
 {
@@ -602,6 +634,8 @@ int main()
 	//learning_basic_io_stream();
 
 	learing_test_class();
+
+	learing_test_class2();
 
 	std::cin.get();//等待键盘输入,目的是可以暂停看到控制台的输出字符
 
