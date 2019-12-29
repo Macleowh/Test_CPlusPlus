@@ -569,10 +569,9 @@ void learing_test_class()
 //2019.12.29
 void learing_test_class2()
 {
-	Calculate_T<double> cal_t;
-
 	//浮点型的加法和除法
 	{
+		Calculate_T<double> cal_t;
 		double op1 = 4.0;
 		double op2 = 5.0;
 		//测试加法
@@ -586,6 +585,7 @@ void learing_test_class2()
 
 	//整型的加法和除法
 	{
+		Calculate_T<int> cal_t;
 		int op1 = 4;
 		int op2 = 5;
 		//测试加法
