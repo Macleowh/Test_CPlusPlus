@@ -145,7 +145,7 @@ void learning_condition_keywords()
 	//先具一些常量的例子帮助理解，其实变量也是一样
 	if (1)
 	{
-		std::cout << "1 is false condition." << std::endl;
+		std::cout << "1 is true condition." << std::endl;
 	}
 
 	if (0)
