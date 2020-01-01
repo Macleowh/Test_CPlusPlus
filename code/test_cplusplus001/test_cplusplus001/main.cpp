@@ -145,7 +145,7 @@ void learning_condition_keywords()
 	//先具一些常量的例子帮助理解，其实变量也是一样
 	if (1)
 	{
-		std::cout << "1 is true condition." << std::endl;
+		std::cout << "1 is false condition." << std::endl;
 	}
 
 	if (0)
@@ -284,11 +284,68 @@ void learning_loop_keywords()
 	//试了解 i++ ++i --i i-- 这四种操作的结果的不同。
 }
 
+void learning_loop_keywords_9_mul_9()
+{
+	// for 
+	// int[]
+	// std::cout << << std::endl;
+
+	/*
+	for (int i = 9, a = 1; i > 0, a < 10; --i,++a, a = i * a )
+	{
+		std::cout << "a = " << a << std::endl;
+	}
+	*/
+
+	/*for (int i=1;i<10;i++ )//正序，i=1<10开始，不停相加
+	{
+		for (int j = 1;j<=i;j++)//先做这里的for循环，j=1不停加1，直到等于i为止
+		{
+			std::cout << i << "*" << j << " = " << i*j << " ";
+			//std::cout << "i = " << i << " j = " << j  << " i * j = " << i*j << std::endl;
+		}
+		std::cout << std::endl;
+	}
+	*/
+
+
+/*	for (int i = 9; i>0; i--)    //倒叙，从9*1开始，i=9，j=1
+	{
+		for (int j = 1; j <= i; j++)//条件j从1开始加，直到等于i为止，然后输出
+		{
+			std::cout << i << "*" << j << " = " << i*j << " ";
+			//std::cout << "i = " << i << " j = " << j  << " i * j = " << i*j << std::endl;
+		}
+		std::cout << std::endl;//断行，跳到第二行
+	}
+	*/
+
+
+	for (int i = 1, j = 1; i < 10; j++)
+	{
+
+		if (j == i)
+		{
+			std::cout << i << "*" << j << " = " << i*j << " ";
+			std::cout << std::endl;
+			i++;
+			j = 1;
+		}
+		if (i < 10)
+		{
+			std::cout << i << "*" << j << " = " << i*j << " ";
+		}
+	}
+	
+}
+
+
+
 int test_increase_and_decrease()
 {
 	//i++
 	{
-		int i = 0, j = 0;
+		int i = 0, j = 0;    //i=1 j=0
 		j = i++;
 		std::cout << "i = " << i << std::endl;
 		std::cout << "j = " << j << std::endl;
@@ -296,7 +353,7 @@ int test_increase_and_decrease()
 	
 	//++i
 	{
-		int i = 0, j = 0;
+		int i = 0, j = 0;//i=1 j=1
 		j = ++i;
 		std::cout << "i = " << i << std::endl;
 		std::cout << "j = " << j << std::endl;
@@ -304,7 +361,7 @@ int test_increase_and_decrease()
 	
 	//i--
 	{
-		int i = 0, j = 0;
+		int i = 0, j = 0;//i=-1 j=0
 		j = i--;
 		std::cout << "i = " << i << std::endl;
 		std::cout << "j = " << j << std::endl;
@@ -312,7 +369,7 @@ int test_increase_and_decrease()
 	
 	//--i
 	{
-		int i = 0, j = 0;
+		int i = 0, j = 0;//i=-1 j=-1
 		j = --i;
 		std::cout << "i = " << i << std::endl;
 		std::cout << "j = " << j << std::endl;
@@ -326,7 +383,7 @@ void learning_basic_operation()
 {
 	//双目基本运算符
 	{
-		int a[4] = { 0 }, b = 3, c = 5; //其中a[4] 是int类型的数组，数组长度为4，起始下标为0，终止下标为3
+		double a[4] = { 0.0 }, b = 3.0, c = 5.0; //其中a[4] double是双精度浮点型数据类型的数组，数组长度为4，起始下标为0，终止下标为3
 
 		std::cout << "运算前的数值" << std::endl;
 		std::cout << "a[0] = " << a[0] << " a[1] = " << a[1]
@@ -337,16 +394,16 @@ void learning_basic_operation()
 		a[3] = b / c;
 		std::cout << "运算后的数值" << std::endl;
 		std::cout << "a[0] = " << a[0] << " a[1] = " << a[1]
-			<< " a[2] = " << a[2] << "a[3] = " << a[3] << std::endl;
+			<< " a[2] = " << a[2] << " a[3] = " << a[3] << std::endl;//a[0]=8.0	a[1]=-2.0 	a[2]=15.0 a[3]= 0.6
 	}
 
 	//三目运算符
 	{
 		int a[3] = { 1, 2, 3 }; // a[0] = 1, a[1] = 2, a[2] = 3;
-		int b = a[0] > 0 ? a[1] : a[2]; // 如果a[0] > 0成立，那么b = a[1],否则 b = a[2];
+		int b = a[0] < 0 ? a[1] : a[2]; // 如果a[0] > 0成立，那么b = a[1],否则 b = a[2];
 		std::cout << "a[0] = " << a[0] << " a[1] = " << a[1]
 			<< " a[2] = " << a[2] << std::endl;
-		std::cout << "b = " << b << std::endl;
+		std::cout << "b = " << b << std::endl;//b=a[2]=3
 	}
 }
 
@@ -601,6 +658,8 @@ void learing_test_class2()
 
 int main()
 {
+	learning_loop_keywords_9_mul_9();
+
 	learning_inner_data_type();
 
 	learning_inner_data_size();
