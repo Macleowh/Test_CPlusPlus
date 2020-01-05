@@ -435,7 +435,7 @@ void learning_logic_operation()
 		bool c[4] = { false };
 		std::cout << "运算前的数值" << std::endl;
 		std::cout << "c[0] = " << c[0] << " c[1] = " << c[1]
-			<< " c[2] = " << c[2] << " c[3] = " << c[3] << std::endl;
+			<< " c[2] = " << c[2] << " c[3] = " << c[3] << std::endl;//c[0] = 0 c[1] = 0 c[2] = 0 c[3] = 0
 		c[0] = a || b; // 或操作符 ：两个操作数有一个为真，则条件为真，否则为假
 		c[1] = c && b; // 与操作符 ：两个操作数都为真，则条件为真，否则为假
 	}
@@ -464,11 +464,18 @@ void learning_pointer_and_reference()
 	//引用
 	{
 		// 声明简单的变量
-		int    i;
-		double d;
-
+		int    i = 5;
+		double d = 4.0;
+		int j = i;
 		// 声明引用变量
 		int&    r = i; //引用必须初始化（试了解初始化和赋值操作的区别）
+		std::cout << "j = " << j << std::endl;
+		std::cout << "r = " << r << std::endl;
+		i++;
+		std::cout << "j = " << j << std::endl;
+		std::cout << "r = " << r << std::endl;
+
+
 		double& s = d;
 
 		i = 5;
@@ -496,19 +503,19 @@ void learning_basic_data_struct()
 		std::cout << "ctable[" << i << "] = " << ctable[i]
 			<< " itable[" << i << "] = " << itable[i]
 			<< " ftable[" << i << "] = " << ftable[i]
-			<< " dtable[" << i << "] = " << dtable[i] << std::endl;
+			<< " dtable[" << i << "] = " << dtable[i] << std::endl;//ctable[0] = a itable[0] = 0 ftable[0] = 0.1f??????? dtable[0] = 0.1
 	}
 
 	const int data_size = 5;
 	std::array<char, data_size> arrayChar{ 'a','b','c','d','e' };
-	std::array<int, data_size> arrayInt{ 0, 1, 2, 3, 4 };
+	std::array<int, data_size> arrayInt{ 5, 6, 7, 8, 9 };
 	std::array<float, data_size> arrayFloat{ 0.1f, 1.1f, 2.2f, 3.3f, 4.4f };
 	std::array<double, data_size> arrayDouble{ 0.1, 1.1, 2.2, 3.3, 4.4 };
 
 	//利用at()方法下标访问
 	for (size_t i = 0; i < arrayChar.size(); ++i)
 	{
-		std::cout << "arrayChar[" << i << "] = " << arrayChar.at(i) << std::endl;
+		std::cout << "arrayChar[" << i << "] = " << arrayChar.at(i) << std::endl;//string s;s.at(n)表示返回下标为n的元素的引用。
 	}
 
 	//利用迭代器访问
@@ -520,12 +527,12 @@ void learning_basic_data_struct()
 	//利用[]方法下标访问
 	for (size_t i = 0; i < arrayFloat.size(); ++i)
 	{
-		std::cout << "arrayFloat[" << i << "] = " << arrayFloat[i] << std::endl;
+		std::cout << "arrayFloat[" << i << "] = " << arrayFloat[i] << std::endl;//[]代表的意思就跟at（）一样，是返回（）里面的元素的引用
 	}
 
 	//利用auto方法访问 C++ 11
 	int idx = 0;
-	for (auto &it : arrayDouble)
+	for (auto &it : arrayDouble)// auto自动类型推断，用于从初始化表达式中推断出变量的数据类型.&it 赋值=arrayDouble
 	{
 	
 		std::cout << "arrayDouble[" << idx << "] = " << it << std::endl;
@@ -533,6 +540,7 @@ void learning_basic_data_struct()
 	}
 
 	//试增加用指针方式访问数组
+
 }
 
 //自定义数据结构
