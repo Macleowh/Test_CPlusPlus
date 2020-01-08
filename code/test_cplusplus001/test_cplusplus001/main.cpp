@@ -540,7 +540,11 @@ void learning_basic_data_struct()
 	}
 
 	//试增加用指针方式访问数组
+	for (int i = 0, i<5, i++)
+	{
+		std::cout << arrayInt["<<i<<"] << arrayInt.at(i) << std:endl
 
+	}
 }
 
 //自定义数据结构
@@ -568,7 +572,12 @@ void learning_use_define_struct()
 	std::cout << "mystruct.bIsmale = " << mystruct.bIsmale << std::endl;
 	std::cout << "mystruct.height = " << mystruct.height << std::endl;
 	std::cout << "mystruct.weight = " << mystruct.weight << std::endl;
-
+	MyStruct mystruct
+		mystruct.name = "Li Si";
+	mystruct.age = 22;
+	mystruct.bIsmale = woman;//为什么true是男性啊，不是应该用man和woman定义吗？
+	mystruct.height = 170;
+	mystruct.weight = 50;
 
 	//试尝试定义另外一个李四的人
 	//试尝试定义其他的数据结构，实现自己的定义
@@ -597,7 +606,38 @@ int learning_basic_file_operation(const std::string & save_filename)
 	return 0;//返回正常值
 
 	//试尝试实现读取文件的功能
+	int learning_basic_file_operation(const std::string & save_filename)
+	{
+		std::ofstream outFile;//outfile是定义的一个文件输出流，就是输出数据到文件里。
+		outFile.open(save_filename, std::ios::out);
+		if (!outFile.eof())
+		{
+			outFile << "Hello World" << std::endl;
+			outFile << "The class is so difficult" << std::endl;
+			outFile.close();
+		}
+		else
+		{
+			outFile.close();
+			return 1;
+		}
 
+		return 0;
+		std::ifstream infile;//infile是定义的一个文件输入流，就是要从文件读取数据的。
+		infile.open(save_filename, std::ios::in);
+		if (!outFile.eof())
+		{
+			infile << "Hello World" << std::endl;
+			infile << "The class is so difficult" << std::endl;
+			infile.close();
+		}
+		else
+		{
+			infile.cleso();
+			return 1;
+		}
+		return 0;
+	}
 }
 
 //2019.12.27
